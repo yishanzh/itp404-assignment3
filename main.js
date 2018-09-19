@@ -18,14 +18,18 @@ document.querySelector("#locateMe").onclick = function (){
     location: myLocation
   }, function(geocoderResults) {
     console.log(geocoderResults);
+    let address = geocoderResults[0].formatted_address;
+
+    let infoWindow = new google.maps.InfoWindow({
+      content:'<strong>You address is: </strong>' + address,
+      position: myLocation
+    });
+    infoWindow.open(map);
+
   });
 
-  let infoWindow = new google.maps.InfoWindow({
-    content:'<strong>You are here!</strong>',
-    position: myLocation
-  });
 
-  infoWindow.open(map);
+
 
 };
 let errorHandler = function(error) {};
