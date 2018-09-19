@@ -1,6 +1,6 @@
 let map = new google.maps.Map(document.getElementById('map'), {
   center: new google.maps.LatLng(34.043514, -118.266210),
-  zoom: 10
+  zoom: 13
 });
 
 
@@ -24,7 +24,16 @@ document.querySelector("#locateMe").onclick = function (){
       content:'<strong>You address is: </strong>' + address,
       position: myLocation
     });
+
+   // map = new google.maps.Map(document.getElementById('map'), {
+   //    center: myLocation,
+   //    zoom: 16
+   //  });
+   map.setCenter(myLocation);
+   map.setZoom(16);
+
     infoWindow.open(map);
+
 
   });
 
